@@ -10,18 +10,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-//jedinka koja je najbolja neæe mutirati ni nestati ali može uæi u križanje.
-//križanje stvara dvoje djece od odabranih roditelja, ako se ne križaju roditelji se prepisuju dalje
+//jedinka koja je najbolja neï¿½e mutirati ni nestati ali moï¿½e uï¿½i u kriï¿½anje.
+//kriï¿½anje stvara dvoje djece od odabranih roditelja, ako se ne kriï¿½aju roditelji se prepisuju dalje
 public class Glavna {
 
 	public static void main(String[] args) {
 		Integer velicinaPopulacije = null, brojIteracija;
 		Double vjerojatnostKrizanja, vjerojatnostMutacije;
 		BufferedReader citac;
-		//Uèitavamo parametre algoritma iz vanjskog file-a
+		//Uï¿½itavamo parametre algoritma iz vanjskog file-a
 		try {
 			citac = new BufferedReader(new FileReader(new File("parametri.txt")));
-				
 			velicinaPopulacije = Integer.parseInt(citac.readLine());
 			vjerojatnostKrizanja = Double.parseDouble(citac.readLine());
 			vjerojatnostMutacije = Double.parseDouble(citac.readLine());
@@ -32,15 +31,15 @@ public class Glavna {
 			System.out.println("Nema file-a");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("Greška s pisanjem");
+			System.out.println("Greï¿½ka s pisanjem");
 			e.printStackTrace();
 		}
 		//stvorimo populaciju
 		List<Integer> populacija = stvoriPopulaciju(velicinaPopulacije);
 		
-		//selekcija: naæi dobrotu cijele populacije, raèunati dobrotu svake jedinke i baciti u smeæe one kod kojih je omjer 
+		//selekcija: naï¿½i dobrotu cijele populacije, raï¿½unati dobrotu svake jedinke i baciti u smeï¿½e one kod kojih je omjer 
 		// dobrota pojedinca / dobrota populacije najmanji(10 komada)
-		//onda nasumièno križati ovih 10 koje ostanu i kopirati njih i njihovu djecu u iduæu iteraciju populacije
+		//onda nasumiï¿½no kriï¿½ati ovih 10 koje ostanu i kopirati njih i njihovu djecu u iduï¿½u iteraciju populacije
 	/*	for(int i = 0; i < velicinaPopulacije; i++)
 		{
 			Random izbor = new Random();
@@ -61,7 +60,7 @@ public class Glavna {
 		ArrayList<Integer> novaPopulacija = new ArrayList<>();
 		Map<Integer, Double> privremenaLista = new HashMap<>();
 		Double dobrotaPopulacije = 0.0;
-		//raèunamo dobrotu svake jedinke, spremamo u mapu za kasnije sortiranje i odbabir top 10 jedinki
+		//raï¿½unamo dobrotu svake jedinke, spremamo u mapu za kasnije sortiranje i odbabir top 10 jedinki
 		for(int i = 0; i < populacija.size(); i++)
 		{
 			double dobrotaJedinke = dobrota(populacija.get(i));
